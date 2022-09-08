@@ -77,7 +77,7 @@ def main():
     test_runner = get_runner(global_settings)
 
     if django.VERSION > (1, 7):
-        print "running 1.7+ tests"
+        print("running 1.7+ tests")
         django.setup()
         from django.test.runner import DiscoverRunner
         test_runner = DiscoverRunner()
