@@ -50,9 +50,8 @@ class ConfigurationTest(TestCase):
         storage.save(name, content)
 
         if self.VERBOSE:
-            print
-            print "Write: %s/%s" % (folder, name)
-            print "Content: '%s'" % self.file_text
+            print("Write: %s/%s" % (folder, name))
+            print("Content: '%s'" % self.file_text)
 
         # confirm it was uploaded
         f = storage.open(name, 'r')
@@ -60,14 +59,14 @@ class ConfigurationTest(TestCase):
         self.assertEqual(file_text, self.file_text)
 
         if self.VERBOSE:
-            print "Read: %s" % f.key.name
-            print >> sys.stdout, "Content: '%s'" % file_text
+            print("Read: %s" % f.key.name)
+            print("Content: '%s'" % file_text)
 
         self.assertEqual(f.obj.key, "%s/%s" % (folder, name))
         f.close()
 
         if self.VERBOSE:
-            print "cleaning up: deleting file: %s" % f.key.name
+            print("cleaning up: deleting file: %s" % f.key.name)
 
         # cleanup
         f.obj.delete()
